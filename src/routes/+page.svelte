@@ -1,2 +1,17 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+ 	import Header from '$lib/components/header/Header.svelte';
+	import AboutMe from '$lib/components/AboutMe.svelte';
+	import Skills from '$lib/components/Skills.svelte';
+	import MyWork from '$lib/components/MyWork.svelte';
+
+  import "./home.scss";
+  import "../global.scss";
+</script>
+
+<Header />
+
+<main class="main">
+	<AboutMe />
+	<Skills />
+	<MyWork />
+</main>

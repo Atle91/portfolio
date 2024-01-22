@@ -1,0 +1,11 @@
+@import "../../style/constants.scss";
+
+.main {
+  display: flex;
+  flex-direction: column;
+  background-color: $secondary-color;
+  color: #fff;
+  padding: 0 1rem;
+  max-width: $content-width;
+  margin: auto;
+}
