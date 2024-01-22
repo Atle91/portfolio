@@ -1,0 +1,19 @@
+// import partial constants
+@import "./../style/constants.scss";
+
+header {
+  background-color: $secondary-color;
+  padding: 10px 0;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  max-width: $content-width;
+  margin: auto;
+
+  li {
+    padding: 16px 10px;
+    text-transform: uppercase;
+  }
+}
