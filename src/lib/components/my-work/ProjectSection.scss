@@ -1,0 +1,50 @@
+@import '../../../../style/constants.scss';
+
+.work__project-section-list-item {
+  display: flex;
+  background: $background-2;
+  cursor: pointer;
+  margin-bottom: 3rem;
+  padding: 1rem 0;
+
+  transform: scale(1);
+  box-shadow: 15px 12px 10px $background-2;
+  transition:
+    transform 0.15s ease-out,
+    box-shadow 0.15s ease-out;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 15px 12px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  &-image,
+  &-text {
+    flex: 1 1 50%;
+    max-width: 50%;
+  }
+
+  &-image {
+    object-fit: contain;
+  }
+
+  &-text {
+    padding: 0 1rem;
+    font-size: $font-lg;
+    line-height: 1.5;
+
+    h4,
+    p {
+      padding: 0;
+      margin: 0;
+    }
+
+    p {
+      color: rgb(207, 207, 207);
+    }
+
+    h4 {
+      margin-bottom: 1rem;
+    }
+  }
+}

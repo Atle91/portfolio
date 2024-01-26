@@ -1,12 +1,12 @@
 // import partial constants
-@import "./../style/constants.scss";
-@import "./../style/fonts.scss";
+@import './../style/constants.scss';
+@import './../style/fonts.scss';
 
 body {
   font-family: Montserrat;
   margin: 0;
   padding: 0;
-  background-color: $primary-color;
+  background: linear-gradient(to right, $background-2, $background-1);
 }
 
 a {
