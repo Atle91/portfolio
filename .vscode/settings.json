@@ -1,27 +1,21 @@
 {
   "workbench.colorCustomizations": {
-    "activityBar.activeBackground": "#cefb7a",
-    "activityBar.background": "#cefb7a",
+    "activityBar.activeBackground": "#f48070",
+    "activityBar.background": "#f48070",
     "activityBar.foreground": "#15202b",
     "activityBar.inactiveForeground": "#15202b99",
-    "activityBarBadge.background": "#26aff8",
+    "activityBarBadge.background": "#a6f8b0",
     "activityBarBadge.foreground": "#15202b",
     "commandCenter.border": "#15202b99",
-    "sash.hoverBorder": "#cefb7a",
-    "statusBar.background": "#bcfa48",
+    "sash.hoverBorder": "#f48070",
+    "statusBar.background": "#f05641",
     "statusBar.foreground": "#15202b",
-    "statusBarItem.hoverBackground": "#aaf916",
-    "statusBarItem.remoteBackground": "#bcfa48",
+    "statusBarItem.hoverBackground": "#eb2d13",
+    "statusBarItem.remoteBackground": "#f05641",
     "statusBarItem.remoteForeground": "#15202b",
-    "titleBar.activeBackground": "#bcfa48",
+    "titleBar.activeBackground": "#f05641",
     "titleBar.activeForeground": "#15202b",
-    "titleBar.inactiveBackground": "#bcfa4899",
+    "titleBar.inactiveBackground": "#f0564199",
     "titleBar.inactiveForeground": "#15202b99"
-  },
-  "peacock.color": "#bcfa48",
-  "editor.formatOnSave": true,
-  "editor.defaultFormatter": "svelte.svelte-vscode",
-  "[scss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }

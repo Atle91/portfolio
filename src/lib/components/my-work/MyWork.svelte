@@ -1,7 +1,9 @@
-<script>
+<script lang="ts">
   import './MyWork.scss';
   import ProjectSection from './ProjectSection.svelte';
-  let work = [
+  import type { WorkProject } from '$types/types.ts';
+
+  let work: WorkProject[] = [
     {
       name: 'IMDI   2023 - 2024',
       icons: [
@@ -24,7 +26,6 @@
         },
         {
           name: 'code',
-          url: 'https://imdi.no',
           imageSrc: '/images/imdi-code.png',
           title: 'Complexity Management in Component Design',
           text: 'The project presented intricate challenges, especially in maintaining code simplicity amidst the necessity for components to adapt based on page context, content, and thematic variations. I implemented a strategic codebase separation, delineating site-specific and shared components, which facilitated a clear mapping of component usage across sites.',
@@ -38,7 +39,6 @@
         },
         {
           name: 'Website',
-          url: 'https://imdi.no',
           imageSrc: '/images/imdi-storybook.png',
           title: 'Code Optimization and Performance Enhancement',
           text: 'Recognizing the potential for bloated code and assets in multi-site setups, I prioritized optimization. Through effective code splitting techniques, I ensured lean page loads, with each site only requesting code essential to its immediate functionality.',
@@ -64,14 +64,14 @@
         {
           name: 'Website',
           url: 'https://imdi.no',
-          imageSrc: '/images/ffo-search.png',
+          imageSrc: '/images/ffo-search.gif',
           title: 'Advanced Search Functionality',
           text: 'Engineered a sophisticated search system using Algolia, automating the indexing of documents from Sanity upon publication. Overcame obstacles presented by exceptionally large documents by segmenting them, ensuring seamless indexing. The search results are intelligently displayed in content-specific blocks for intuitive user navigation.',
         },
         {
           name: 'Website',
           url: 'https://imdi.no',
-          imageSrc: '/images/ffo-filters.png',
+          imageSrc: '/images/ffo-filters.gif',
           title: 'Dynamic Content Filtering',
           text: 'Developed a versatile content filtering system, supporting complex OR/AND logic across multiple categories and document structures, complete with real-time result counting.',
         },

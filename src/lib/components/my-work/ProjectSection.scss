@@ -1,40 +1,104 @@
 @import '../../../../style/constants.scss';
 
-.work__project-section-list-item {
+.project-section {
+  $border-size: 3px;
   display: flex;
+  column-gap: 2rem;
   background: $background-2;
-  cursor: pointer;
   margin-bottom: 3rem;
-  padding: 1rem 0;
+  padding: 2rem 4px;
+  max-width: 100%;
+  perspective: 500px;
+  // overflow: hidden;
 
-  transform: scale(1);
+  transform: scale(1) translateY(0);
   box-shadow: 15px 12px 10px $background-2;
   transition:
     transform 0.15s ease-out,
     box-shadow 0.15s ease-out;
-
-  &:hover {
-    transform: scale(1.05);
-    box-shadow: 15px 12px 10px rgba(0, 0, 0, 0.2);
+  .link-container {
+    cursor: pointer;
   }
 
-  &-image,
-  &-text {
+  &:nth-child(odd) {
+    flex-direction: row-reverse;
+
+    .project-section__image-container {
+      transform: rotateY(-10deg) rotateX(-1deg);
+    }
+  }
+
+  &__image-container,
+  &__text {
     flex: 1 1 50%;
-    max-width: 50%;
   }
 
-  &-image {
-    object-fit: contain;
+  &__image-container {
+    position: relative;
+    transition: max-width 0.25s ease-out;
+    margin-bottom: auto;
+    border-radius: $border-radius;
+    overflow: hidden;
+    padding: $border-size;
+
+    // transform: skew(-5deg) rotate(-5deg);
+    transform-origin: left; /* Sets the origin of transformation to the right side */
+    transform: rotateY(10deg) rotateX(1deg); /* Tilts the element to appear 3D */
+    transition: transform 0.15s ease-out infinite;
+    box-shadow: #000000 10px 11px 20px -1px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: -$border-size;
+      border-radius: $border-radius;
+      z-index: -1;
+
+      background: conic-gradient(
+        from 0deg,
+        red,
+        orange,
+        yellow,
+        green,
+        blue,
+        indigo,
+        violet,
+        red
+      );
+      transform: translate(6px, 0px);
+      // rainbow border
+      // background: conic-gradient(
+      //   from 0deg,
+      //   red, orange, yellow, green, blue, indigo, violet, red
+      // );
+      // // Ensure the gradient covers the entire element even during rotation
+      // width: 150%;
+      // height: 250%;
+      // top: -75%;
+      // left: -25%;
+      // animation: rotate-gradient 5s linear infinite;
+    }
+
+    img {
+      display: block;
+      object-fit: contain;
+      width: 100%;
+      border-radius: $border-radius;
+    }
+    //Rainbow border
+    // @keyframes rotate-gradient {
+    //   100% {
+    //       transform: rotate(360deg);
+    //   }
+    // }
   }
 
-  &-text {
+  &__text {
     padding: 0 1rem;
     font-size: $font-lg;
     line-height: 1.5;
 
-    h4,
-    p {
+    h4 p {
       padding: 0;
       margin: 0;
     }
@@ -46,5 +110,47 @@
     h4 {
       margin-bottom: 1rem;
     }
+  }
+
+  &__content {
+    display: flex;
+    column-gap: 2rem;
+    background: $background-2;
+    margin-bottom: 3rem;
+    padding: 2rem 4px;
+    max-width: 100%;
+    overflow: hidden;
+
+    transform: scale(1) translateY(0);
+    box-shadow: 15px 12px 10px $background-2;
+    transition:
+      transform 0.15s ease-out,
+      box-shadow 0.15s ease-out;
+    .link-container {
+      cursor: pointer;
+    }
+
+    // &:hover {
+    //   transform: scale(1.05) translateY(16px);
+    //   box-shadow: 15px 12px 10px rgba(11, 10, 10, 0.2);
+
+    //   &.link-container {
+    //     h4 {
+    //       text-decoration: underline;
+    //       text-underline-position: under;
+    //     }
+    //   }
+
+    //   &.div-container {
+    //     // flex-wrap: wrap;
+
+    //     img {
+    //       animation: image-hover 4s ease-out infinite;
+    //       cursor: pointer;
+    //       // width: 100%;
+    //       // max-width: 100%;
+    //     }
+    //   }
+    // }
   }
 }
