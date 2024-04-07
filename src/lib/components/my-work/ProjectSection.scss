@@ -1,8 +1,5 @@
 @import '../../../../style/constants.scss';
-
-@function grey($c) {
-  @return rgb($c, $c, $c);
-}
+@import '../../../../style/fonts.scss';
 
 .project-section {
   --min-screen-top-border: 0px;
@@ -20,8 +17,8 @@
       var(--distance-from-top)
   );
 
-  --min-screen-tilt: -3deg;
-  --max-screen-tilt: 3deg;
+  --min-screen-tilt: -1deg;
+  --max-screen-tilt: 21deg;
   --screen-tilt: calc(
     var(--min-screen-tilt) + (var(--max-screen-tilt) - var(--min-screen-tilt)) *
       var(--distance-from-top)
@@ -34,7 +31,6 @@
   padding: 2rem 4px;
   max-width: 100%;
   perspective: 500px;
-  // overflow: hidden;
 
   transform: scale(1) translateY(0);
   box-shadow: 15px 12px 10px $background-2;
@@ -49,7 +45,7 @@
     flex-direction: row-reverse;
 
     .project-section__image-container {
-      transform: rotateY(-10deg) rotateX(var(--screen-tilt));
+      transform: rotateY(-6deg) rotateX(calc(var(--screen-tilt)));
 
       &::after {
         inset: var(--screen-top-border) 0px var(--bottom-screen-border) -2px;
@@ -73,9 +69,8 @@
     padding: 12px;
     border-radius: $border-radius;
 
-    // transform: skew(-5deg) rotate(-5deg);
     transform-origin: left; /* Sets the origin of transformation to the right side */
-    transform: rotateY(10deg) rotateX(var(--screen-tilt)); /* Tilts the element to appear 3D */
+    transform: rotateY(6deg) rotateX(var(--screen-tilt)); /* Tilts the element to appear 3D */
     transition: transform 0.15s ease-out infinite;
     box-shadow: #000000 10px 11px 20px -1px;
 
@@ -101,9 +96,8 @@
   }
 
   &__text {
+    @include font-lg;
     padding: 0 1rem;
-    font-size: $font-lg;
-    line-height: 1.5;
 
     h4 p {
       padding: 0;
@@ -111,7 +105,6 @@
     }
 
     p {
-      color: rgb(207, 207, 207);
     }
 
     h4 {

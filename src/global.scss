@@ -7,11 +7,11 @@ body {
   margin: 0;
   padding: 0;
   background: linear-gradient(to right, $background-2, $background-1);
+  color: $text-color;
 }
 
 a {
   text-decoration: none;
-  color: $text-color;
   background: none;
 }
 
@@ -26,4 +26,13 @@ button {
   border: none;
   background: none;
   padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: white;
 }
