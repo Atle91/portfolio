@@ -15,9 +15,12 @@
   onMount(() => {
     console.log('onMount');
     setupAsyncOperations();
-    window.addEventListener('resize', updateDistance); // Re-calculate on resize
+    window.addEventListener('resize', updateDistance);
+    window.addEventListener('scroll', updateDistance);
+
     return () => {
       window.removeEventListener('resize', updateDistance);
+      window.removeEventListener('scroll', updateDistance);
     };
   });
   async function setupAsyncOperations() {
@@ -26,23 +29,21 @@
   }
 
   function updateDistance() {
-    console.log('distanceFromTop', distanceFromTop);
     if (element) {
       const rect = element.getBoundingClientRect();
-      distanceFromTop.set(324);
+      const viewportHeight = window.innerHeight;
+      const decimal = rect.top / viewportHeight;
+      distanceFromTop.set(decimal);
     }
   }
-
-  console.log('ASDSA');
 </script>
 
 <li
   bind:this={element}
   class="project-section"
-  style={{ '--distance-from-top': 'asd' }}
+  style="--distance-from-top: {$distanceFromTop};"
 >
   <div class="project-section__image-container">
-    <h3>Distance from top: {$distanceFromTop}px</h3>
     {#if !url}
       <button
         class="project-section__image {largeImageClass}"

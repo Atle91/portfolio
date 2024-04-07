@@ -13,3 +13,7 @@ $text-color: rgb(235, 235, 235);
 $font-lg: 24px;
 $font-md: 20px;
 $font-sm: 16px;
+
+@function interpolate($start, $end, $ratio) {
+  @return $start + ($end - $start) * $ratio;
+}

@@ -1,7 +1,32 @@
 @import '../../../../style/constants.scss';
 
+@function grey($c) {
+  @return rgb($c, $c, $c);
+}
+
 .project-section {
-  $border-size: 3px;
+  --min-screen-top-border: 0px;
+  --max-screen-top-border: -2px;
+
+  --screen-top-border: calc(
+    var(--max-screen-top-border) +
+      (var(--min-screen-top-border) - var(--max-screen-top-border)) *
+      var(--distance-from-top)
+  );
+
+  --bottom-screen-border: calc(
+    var(--min-screen-top-border) +
+      (var(--max-screen-top-border) - var(--min-screen-top-border)) *
+      var(--distance-from-top)
+  );
+
+  --min-screen-tilt: -3deg;
+  --max-screen-tilt: 3deg;
+  --screen-tilt: calc(
+    var(--min-screen-tilt) + (var(--max-screen-tilt) - var(--min-screen-tilt)) *
+      var(--distance-from-top)
+  );
+
   display: flex;
   column-gap: 2rem;
   background: $background-2;
@@ -24,7 +49,12 @@
     flex-direction: row-reverse;
 
     .project-section__image-container {
-      transform: rotateY(-10deg) rotateX(-1deg);
+      transform: rotateY(-10deg) rotateX(var(--screen-tilt));
+
+      &::after {
+        inset: var(--screen-top-border) 0px var(--bottom-screen-border) -2px;
+        box-shadow: #dcdcc8 inset -1px 0px 1px 0px;
+      }
     }
   }
 
@@ -34,63 +64,40 @@
   }
 
   &__image-container {
+    $border-radius: 20px;
+
     position: relative;
     transition: max-width 0.25s ease-out;
     margin-bottom: auto;
-    border-radius: $border-radius;
     overflow: hidden;
-    padding: $border-size;
+    padding: 12px;
+    border-radius: $border-radius;
 
     // transform: skew(-5deg) rotate(-5deg);
     transform-origin: left; /* Sets the origin of transformation to the right side */
-    transform: rotateY(10deg) rotateX(1deg); /* Tilts the element to appear 3D */
+    transform: rotateY(10deg) rotateX(var(--screen-tilt)); /* Tilts the element to appear 3D */
     transition: transform 0.15s ease-out infinite;
     box-shadow: #000000 10px 11px 20px -1px;
 
     &::after {
+      // This creates a border around the image
       content: '';
       position: absolute;
-      inset: -$border-size;
+      inset: -1px -2px -1px 0px;
       border-radius: $border-radius;
       z-index: -1;
 
-      background: conic-gradient(
-        from 0deg,
-        red,
-        orange,
-        yellow,
-        green,
-        blue,
-        indigo,
-        violet,
-        red
-      );
-      transform: translate(6px, 0px);
-      // rainbow border
-      // background: conic-gradient(
-      //   from 0deg,
-      //   red, orange, yellow, green, blue, indigo, violet, red
-      // );
-      // // Ensure the gradient covers the entire element even during rotation
-      // width: 150%;
-      // height: 250%;
-      // top: -75%;
-      // left: -25%;
-      // animation: rotate-gradient 5s linear infinite;
+      background: grey(10);
+      border: 3px solid #656565;
+      box-shadow: #dcdcc8 inset 1px 0px 1px 0px;
     }
 
     img {
       display: block;
       object-fit: contain;
       width: 100%;
-      border-radius: $border-radius;
+      border-radius: $border-radius - 8;
     }
-    //Rainbow border
-    // @keyframes rotate-gradient {
-    //   100% {
-    //       transform: rotate(360deg);
-    //   }
-    // }
   }
 
   &__text {

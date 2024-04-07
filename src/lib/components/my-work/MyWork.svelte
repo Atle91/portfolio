@@ -118,7 +118,7 @@
         {/if}
 
         <ul class="work__project-section-list">
-          {#each links as projectSection (projectSection.name)}
+          {#each links as projectSection}
             <ProjectSection {...projectSection} />
           {/each}
         </ul>
