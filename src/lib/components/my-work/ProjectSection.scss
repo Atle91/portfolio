@@ -2,6 +2,14 @@
 @import '../../../../style/fonts.scss';
 
 .project-section {
+  --min-screen-y-pos: -21px;
+  --max-screen-y-pos: 21px;
+
+  --screen-y-pos: calc(
+    var(--max-screen-y-pos) +
+      (var(--min-screen-y-pos) - var(--max-screen-y-pos)) *
+      var(--distance-from-top)
+  );
   --min-screen-top-border: 0px;
   --max-screen-top-border: -2px;
 
@@ -45,7 +53,8 @@
     flex-direction: row-reverse;
 
     .project-section__image-container {
-      transform: rotateY(-6deg) rotateX(calc(var(--screen-tilt)));
+      transform: translateY(var(--screen-y-pos)) rotateY(-6deg)
+        rotateX(calc(var(--screen-tilt)));
 
       &::after {
         inset: var(--screen-top-border) 0px var(--bottom-screen-border) -2px;
@@ -70,7 +79,8 @@
     border-radius: $border-radius;
 
     transform-origin: left; /* Sets the origin of transformation to the right side */
-    transform: rotateY(6deg) rotateX(var(--screen-tilt)); /* Tilts the element to appear 3D */
+    transform: translateY(var(--screen-y-pos)) rotateY(6deg)
+      rotateX(var(--screen-tilt)); /* Tilts the element to appear 3D */
     transition: transform 0.15s ease-out infinite;
     box-shadow: #000000 10px 11px 20px -1px;
 
